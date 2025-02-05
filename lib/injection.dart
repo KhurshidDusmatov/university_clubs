@@ -1,5 +1,10 @@
 import 'package:get/get.dart';
+import 'package:univesity_clubs/controller/home/home_controller.dart';
+import 'package:univesity_clubs/controller/login/login_controller.dart';
+import 'package:univesity_clubs/controller/registration/registration_controller.dart';
 import 'package:univesity_clubs/domain/use_case/login/login_use_case.dart';
+import 'package:univesity_clubs/domain/use_case/registration/register_use_case.dart';
+import 'package:univesity_clubs/domain/use_case/resend_sms/resend_sms_use_case.dart';
 import 'package:univesity_clubs/domain/use_case/verification/verification_use_case.dart';
 import 'controller/main/main_controller.dart';
 import 'data/server/api/api_service.dart';
@@ -14,9 +19,15 @@ class DIService {
     Get.lazyPut<AuthInterceptor>(() => AuthInterceptor(Get.find<AuthHolder>()), fenix: true);
     /// controllers
     Get.lazyPut<MainController>(() => MainController(), fenix: true);
+    Get.lazyPut<LoginController>(() => LoginController(Get.find()), fenix: true);
+    Get.lazyPut<RegistrationController>(() => RegistrationController(Get.find()), fenix: true);
+    Get.lazyPut<HomeController>(() => HomeController(), fenix: true);
+
     /// use case
     Get.lazyPut<LoginUseCase>(() => LoginUseCase(Get.find()), fenix: true);
     Get.lazyPut<VerificationUseCase>(() => VerificationUseCase(Get.find()), fenix: true);
+    Get.lazyPut<RegisterUseCase>(() => RegisterUseCase(Get.find()), fenix: true);
+    Get.lazyPut<ResendSmsUseCase>(() => ResendSmsUseCase(Get.find()), fenix: true);
   }
 }
 

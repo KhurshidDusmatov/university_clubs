@@ -1,13 +1,12 @@
-import 'package:bormi/controller/verification_controller/verification_controller.dart';
-import 'package:bormi/data/tools/strings/string.dart';
-import 'package:bormi/view/pages/auth/verification/widgets/resent_text.dart';
-import 'package:bormi/view/pages/profile/profile_edit/widgets/white_app_bar.dart';
-import 'package:bormi/view/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:sms_autofill/sms_autofill.dart';
-import '../../../../data/tools/styles/res_colors.dart';
+import 'package:univesity_clubs/controller/verification/verification_controller.dart';
+import 'package:univesity_clubs/data/tools/const/string.dart';
+import 'package:univesity_clubs/view/verification_page/widgets/resent_text.dart';
+import 'package:univesity_clubs/view/widgets/custom_button.dart';
+import 'package:univesity_clubs/view/widgets/white_app_bar.dart';
+import '../../data/tools/const/res_colors.dart';
 
 class VerificationPage extends StatelessWidget {
   const VerificationPage({super.key});
@@ -24,19 +23,19 @@ class VerificationPage extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SizedBox(height: 28.h),
+                  SizedBox(height: 28),
                   Padding(
-                    padding: EdgeInsets.only(left: 18.w, right: 18.w),
+                    padding: EdgeInsets.only(left: 18, right: 18),
                     child: Text(
-                      Strings.verification.tr,
-                      style: TextStyle(
-                          fontSize: 30.sp, fontWeight: FontWeight.w700),
+                      Strings.verification,
+                      style:
+                          TextStyle(fontSize: 30, fontWeight: FontWeight.w700),
                     ),
                   ),
-                  SizedBox(height: 50.h),
+                  SizedBox(height: 50),
                   Center(
                     child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 20.w),
+                      padding: EdgeInsets.symmetric(horizontal: 20),
                       child: PinFieldAutoFill(
                         decoration: BoxLooseDecoration(
                           strokeColorBuilder: PinListenColorBuilder(
@@ -59,15 +58,15 @@ class VerificationPage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    controller.invalidCode ? Strings.invalidCode.tr : '',
-                    style: TextStyle(fontSize: 20.sp, color: Colors.red),
+                    controller.invalidCode ? Strings.invalidCode : '',
+                    style: TextStyle(fontSize: 20, color: Colors.red),
                   ),
                   ResentText(controller: controller),
                   SizedBox(height: MediaQuery.of(context).size.height / 4.3),
                   Padding(
-                    padding: EdgeInsets.only(left: 8.w),
+                    padding: EdgeInsets.only(left: 8),
                     child: CustomButton(
-                        title: Strings.save.tr,
+                        title: Strings.save,
                         color: ResColors.primaryColor,
                         func: () async {
                           controller.verification();

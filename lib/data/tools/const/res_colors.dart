@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ResColors{
-  static const Color primaryColor = Color(0xffD22B2B);
+  static const Color primaryColor = Colors.blue;
   static const Color primaryBlack = Colors.black;
   static const Color whiteColor = Color(0xffFFFFFF);
   static const Color notActiveColor = Color(0xfffff8f8);
@@ -18,6 +18,7 @@ class ResColors{
   static const Color backgroundColor = Color(0xffF7F8F9);
   static const Color backgroundColor2 = Color(0xffF2F1EF);
   static const Color blackWithOpacity = Color(0xffCBCBCB);
+  static const Color customRed = Color(0xffFF014A);
 
 
   static Color appColor = const Color.fromRGBO(11, 139, 110, 1);

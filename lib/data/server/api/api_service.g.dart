@@ -22,10 +22,14 @@ class _ApiService implements ApiService {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Stream<LoginResponse> login(LoginRequest request) async* {
+  Stream<LoginResponse> login(
+    LoginRequest request,
+    String lang,
+  ) async* {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Accept-Language': lang};
+    _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     _data.addAll(request.toJson());
     final _options = _setStreamType<LoginResponse>(Options(
@@ -35,7 +39,7 @@ class _ApiService implements ApiService {
     )
         .compose(
           _dio.options,
-          '/api/v1/auth/loginc',
+          '/api/v1/auth/login',
           queryParameters: queryParameters,
           data: _data,
         )
@@ -57,10 +61,13 @@ class _ApiService implements ApiService {
 
   @override
   Stream<VerificationResponse> verification(
-      VerificationRequest request) async* {
+    VerificationRequest request,
+    String lang,
+  ) async* {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Accept-Language': lang};
+    _headers.removeWhere((k, v) => v == null);
     final _data = <String, dynamic>{};
     _data.addAll(request.toJson());
     final _options = _setStreamType<VerificationResponse>(Options(
@@ -83,6 +90,77 @@ class _ApiService implements ApiService {
     late VerificationResponse _value;
     try {
       _value = VerificationResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    yield _value;
+  }
+
+  @override
+  Stream<RegisterResponse> registration(
+    RegisterRequest request,
+    String lang,
+  ) async* {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Accept-Language': lang};
+    _headers.removeWhere((k, v) => v == null);
+    final _data = <String, dynamic>{};
+    _data.addAll(request.toJson());
+    final _options = _setStreamType<RegisterResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/v1/auth/registration',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late RegisterResponse _value;
+    try {
+      _value = RegisterResponse.fromJson(_result.data!);
+    } on Object catch (e, s) {
+      errorLogger?.logError(e, s, _options);
+      rethrow;
+    }
+    yield _value;
+  }
+
+  @override
+  Stream<ResendSmsResponse> resendSms(String phoneNumber) async* {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    const Map<String, dynamic>? _data = null;
+    final _options = _setStreamType<ResendSmsResponse>(Options(
+      method: 'PUT',
+      headers: _headers,
+      extra: _extra,
+    )
+        .compose(
+          _dio.options,
+          '/api/v1/auth/resend/sms/${phoneNumber}',
+          queryParameters: queryParameters,
+          data: _data,
+        )
+        .copyWith(
+            baseUrl: _combineBaseUrls(
+          _dio.options.baseUrl,
+          baseUrl,
+        )));
+    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
+    late ResendSmsResponse _value;
+    try {
+      _value = ResendSmsResponse.fromJson(_result.data!);
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

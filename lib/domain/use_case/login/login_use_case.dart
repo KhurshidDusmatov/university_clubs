@@ -12,7 +12,7 @@ class LoginUseCase {
   LoginUseCase(this._service);
 
   Stream<Result<LoginResponse>> invoke(LoginRequest request) => _service
-      .login(request, 'UZ')
+      .login(request, "UZ")
       .map((response) {
         return Result.content(response);
       })

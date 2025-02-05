@@ -34,11 +34,11 @@ class AuthPrefs extends AuthHolder {
 
 
   @override
-  List<String> get roleList => authBox.get(roleId, defaultValue: ['']);
+  String get role => authBox.get(roleId, defaultValue: '');
 
 
   @override
-  set roleList(List<String> roleList) => authBox.put(roleId, roleList);
+  set role(String role) => authBox.put(roleId, role);
 
   @override
   Future<void> clearAuth() async => await authBox.clear();
@@ -48,5 +48,5 @@ class AuthPrefs extends AuthHolder {
   static const nameId = 'name';
   static const surnameId = 'surname';
   static const phoneId = 'phone';
-  static const roleId = 'roleList';
+  static const roleId = 'role';
 }

@@ -4,12 +4,11 @@ import 'package:univesity_clubs/domain/entities/login/login_request.dart';
 import 'package:univesity_clubs/domain/entities/login/login_response.dart';
 import 'package:univesity_clubs/domain/entities/registration/register_request.dart';
 import 'package:univesity_clubs/domain/entities/registration/register_response.dart';
+import 'package:univesity_clubs/domain/entities/resend_sms/resend_sms_response.dart';
 import 'package:univesity_clubs/domain/entities/verification/verification_request.dart';
 import 'package:univesity_clubs/domain/entities/verification/verification_response.dart';
 import 'api_constant.dart';
 import 'package:dio/dio.dart';
-import 'package:retrofit/http.dart';
-
 part 'api_service.g.dart';
 
 @RestApi()
@@ -35,5 +34,7 @@ abstract class ApiService {
   Stream<VerificationResponse> verification(@Body() VerificationRequest request,  @Header('Accept-Language') String lang);
   @POST(ApiConst.REGISTRATION)
   Stream<RegisterResponse> registration(@Body() RegisterRequest request, @Header('Accept-Language') String lang);
+  @PUT('${ApiConst.RESEND_SMS}/{phoneNumber}')
+  Stream<ResendSmsResponse>resendSms(@Path('phoneNumber') String phoneNumber);
 
 }

@@ -5,7 +5,7 @@ abstract class AuthHolder {
   late String name;
   late String surname;
   late String phone;
-  late List<String> roleList;
+  late String role;
 
   Future<void> clearAuth();
 }

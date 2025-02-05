@@ -20,12 +20,13 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: Colors.white,
           appBarTheme: const AppBarTheme(color: Colors.white),
           colorScheme: ColorScheme.fromSwatch().copyWith(
-            primary: const Color(0xffFF014A),
-            secondary: const Color(0xffFF014A),
+            primary: const Color(0xff0961F5),
+            secondary: const Color(0xff0961F5),
           )
       ),
       getPages: RouteHelper.routes,
       initialRoute: RouteHelper.getInitial(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }

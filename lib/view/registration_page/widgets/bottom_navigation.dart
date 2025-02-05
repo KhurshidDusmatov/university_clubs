@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:univesity_clubs/data/tools/const/res_colors.dart';
+import 'package:univesity_clubs/data/tools/const/string.dart';
+import 'package:univesity_clubs/view/registration_page/registration_page.dart';
 
 class BottomNavigation extends StatelessWidget {
   const BottomNavigation({super.key});
@@ -11,22 +14,22 @@ class BottomNavigation extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
-            Strings.askSignUp.tr,
+            Strings.askSignUp,
             style: TextStyle(
                 color: ResColors.greyText,
-                fontSize: 13.sp,
-                fontWeight: FontWeight.w400),
+                fontSize: 13,
+                fontWeight: FontWeight.w600),
           ),
-          SizedBox(width: 8.w),
+          SizedBox(width: 8),
           InkWell(
             child: Text(
-              Strings.signUp.tr,
+              Strings.signUp,
               style: TextStyle(
                 color: ResColors.primaryColor,
-                fontSize: 13.4.sp,
+                fontSize: 13.4,
                 decoration: TextDecoration.underline,
                 decorationColor: ResColors.primaryColor,
-                fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.w600,
               ),
             ),
             onTap: (){
