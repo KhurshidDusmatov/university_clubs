@@ -17,5 +17,16 @@ class ClubModel extends HiveObject {
   @HiveField(3)
   final String phone;
 
-  ClubModel({required this.title, required this.description, required this.phone}) : id = const Uuid().v4();
+  ClubModel({required this.title, required this.description, required this.phone, String? id})
+      : id = id ?? const Uuid().v4();
+
+  ClubModel copyWith({String? title, String? description, String? phone}) {
+    return ClubModel(
+      title: title ?? this.title,
+      description: description ?? this.description,
+      phone: phone ?? this.phone,
+      id: id,
+    );
+  }
 }
+

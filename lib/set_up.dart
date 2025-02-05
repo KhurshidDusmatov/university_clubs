@@ -18,4 +18,5 @@ Future<void> setup() async {
   await Hive.openBox(AuthPrefs.authBoxID);
   Hive.registerAdapter(ClubModelAdapter());
   await Hive.openBox<ClubModel>('clubBox');
+  await Hive.openBox<ClubModel>('myClubsBox');
 }

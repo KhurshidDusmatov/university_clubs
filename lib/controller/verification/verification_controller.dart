@@ -11,7 +11,6 @@ import 'package:univesity_clubs/data/tools/service/connectivity_service/connecti
 import 'package:univesity_clubs/domain/entities/verification/verification_request.dart';
 import 'package:univesity_clubs/domain/use_case/resend_sms/resend_sms_use_case.dart';
 import 'package:univesity_clubs/domain/use_case/verification/verification_use_case.dart';
-import 'package:univesity_clubs/view/home_page/home_page.dart';
 import 'package:univesity_clubs/view/widgets/snackbar.dart';
 import '../../data/storage/auth/auth_holder.dart';
 

@@ -2,10 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:univesity_clubs/controller/home/home_controller.dart';
 import 'package:univesity_clubs/view/home_page/widgets/club_info.dart';
-import 'package:univesity_clubs/view/home_page/widgets/search_textfield.dart';
 
-class HomePage extends StatelessWidget {
-  const HomePage({super.key});
+class MyClubsPage extends StatelessWidget {
+  const MyClubsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,27 +12,22 @@ class HomePage extends StatelessWidget {
       init: HomeController(),
       builder: (controller) {
         return Scaffold(
-          backgroundColor: Colors.white,
-          appBar: AppBar(surfaceTintColor: Colors.white),
-          body: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SearchTextfield(controller: controller),
+            backgroundColor: Colors.white,
+            appBar: AppBar(),
+            body: Column(children: [
               SizedBox(height: 10),
               Expanded(
-                child: controller.filteredClubList.isEmpty
+                child: controller.myClubList.isEmpty
                     ? Center(child: Text("Klublar topilmadi"))
                     : ListView.builder(
-                        itemCount: controller.filteredClubList.length,
+                        itemCount: controller.myClubList.length,
                         itemBuilder: (context, index) {
-                          final club = controller.filteredClubList[index];
+                          final club = controller.myClubList[index];
                           return ClubInfo(club: club);
                         },
                       ),
               ),
-            ],
-          ),
-        );
+            ]));
       },
     );
   }

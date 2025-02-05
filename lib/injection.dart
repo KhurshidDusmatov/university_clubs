@@ -1,4 +1,5 @@
 import 'package:get/get.dart';
+import 'package:univesity_clubs/controller/add_club/add_club_controller.dart';
 import 'package:univesity_clubs/controller/home/home_controller.dart';
 import 'package:univesity_clubs/controller/login/login_controller.dart';
 import 'package:univesity_clubs/controller/registration/registration_controller.dart';
@@ -22,6 +23,7 @@ class DIService {
     Get.lazyPut<LoginController>(() => LoginController(Get.find()), fenix: true);
     Get.lazyPut<RegistrationController>(() => RegistrationController(Get.find()), fenix: true);
     Get.lazyPut<HomeController>(() => HomeController(), fenix: true);
+    Get.lazyPut<AddClubController>(() => AddClubController(), fenix: true);
 
     /// use case
     Get.lazyPut<LoginUseCase>(() => LoginUseCase(Get.find()), fenix: true);

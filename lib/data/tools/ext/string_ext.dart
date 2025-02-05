@@ -7,3 +7,11 @@ extension PhoneFormatter on String {
     }
   }
 }
+
+extension PhoneFormatter2 on String {
+  String toUzbFormat() {
+    if (length != 9) return this;
+    return "+998 ${substring(0, 2)} ${substring(2, 5)} ${substring(5, 7)} ${substring(7, 9)}";
+  }
+}
+

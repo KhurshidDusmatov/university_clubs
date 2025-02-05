@@ -22,9 +22,20 @@ class Strings {
   static const areYouSureToExit = "Chiqishga ishonchingiz komilmi ?";
   static const applications = "Arizalar";
   static const clubCreate = "Klub yaratish";
+  static const enterClubTitle = "Klub nomini kiriting";
+  static const enterDescription = "Klub haqida qisqacha";
   static const addEvent = "Tadbir qo'shish";
   static const logout = "Hisobdan chiqish";
   static const myClubs = "A'zo bo'lgan klublarim";
   static const events = "Tadbirlar";
+  static const clubsSchedule = "Klublar ro'yxati";
+  static const search = "Qidirish";
+  static const clubCreated = "Klub muvaffaqiyatli yaratildi";
+  static const  youSubscribedToClub= "Klubga obuna bo'ldingiz";
+  static const  youUnSubscribedToClub= "Klub obunasi bekor qilindi";
   static const areYouSure = "Hisobdan chiqishga ishonchingiz komilmi ?";
+  static const join = "A'zo bo'lish";
+  static const delete = "O'chirish";
+  static const youCantJoin = "Hisobsiz a'zo bo'lish imkonsiz";
+
 }

@@ -7,6 +7,8 @@ import 'package:univesity_clubs/data/storage/auth/auth_holder.dart';
 import 'package:univesity_clubs/data/tools/const/res_colors.dart';
 import 'package:univesity_clubs/data/tools/const/string.dart';
 import 'package:univesity_clubs/data/tools/ext/string_ext.dart';
+import 'package:univesity_clubs/view/add_club_page/add_club_page.dart';
+import 'package:univesity_clubs/view/my_clubs_page/my_clubs_page.dart';
 import 'package:univesity_clubs/view/widgets/custom_alert.dart';
 import 'package:univesity_clubs/view/widgets/custom_button.dart';
 import 'package:univesity_clubs/view/widgets/custom_button_blue_line.dart';
@@ -73,9 +75,9 @@ class ProfilePage extends StatelessWidget {
                           title: Strings.clubCreate,
                           color: ResColors.primaryColor,
                           func: () async {
-                            // Get.to(() => const ShopPage(),
-                            //     transition: Transition.rightToLeftWithFade,
-                            //     duration: const Duration(milliseconds: 300));
+                            Get.to(() => const AddClubPage(),
+                                transition: Transition.rightToLeftWithFade,
+                                duration: const Duration(milliseconds: 300));
                           },
                           height: 44,
                           width: 44,
@@ -109,7 +111,9 @@ class ProfilePage extends StatelessWidget {
                           title: Strings.myClubs,
                           color: ResColors.primaryColor,
                           func: () async {
-
+                            Get.to(() => const MyClubsPage(),
+                                transition: Transition.rightToLeftWithFade,
+                                duration: const Duration(milliseconds: 300));
                           },
                           height: 44,
                           width: 44,
@@ -119,7 +123,7 @@ class ProfilePage extends StatelessWidget {
                             title: Strings.events,
                             color: ResColors.primaryColor,
                             func: () async {
-
+                              /// events
                             },
                             height: 44,
                             width: 44),
